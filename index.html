@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Saanidhya Geriatric Day Care | Where Care Meets Companionship</title>
+  <meta name="description" content="Doctor-led geriatric day care in Bengaluru (JP Nagar, Jayanagar, HSR Layout). Daytime medical supervision, nutrition, physiotherapy, social engagement, and daily WhatsApp updates to families.">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#FFF7F0;           /* soft peach */
+      --brand:#7A86B6;        /* pastel lavender-gray */
+      --brand-2:#A8D8EA;      /* pastel sky */
+      --ink:#1f2330;
+      --muted:#5f6883;
+      --card:#ffffff;
+      --ok:#2a9d8f;
+      --warn:#e9a23b;
+      --shadow: 0 18px 44px rgba(31,35,48,.12);
+      --radius:22px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;
+      color:var(--ink);
+      background:linear-gradient(180deg,var(--bg),#fff 40%,#fff);
+      font-size:17px;
+      line-height:1.6;
+    }
+    a{color:var(--brand);text-decoration:none}
+    .container{max-width:1140px;margin:0 auto;padding:0 18px}
+    .btn{
+      display:inline-flex;align-items:center;gap:.55rem;
+      background:var(--brand); color:#fff; padding:.9rem 1.2rem;
+      border-radius:14px; font-weight:700; letter-spacing:.2px; border:0;
+      box-shadow:0 10px 24px rgba(122,134,182,.25);
+      transition:.25s transform ease,.25s box-shadow ease,.25s background ease;
+      cursor:pointer
+    }
+    .btn:hover{transform:translateY(-1px); box-shadow:0 14px 30px rgba(122,134,182,.35)}
+    .btn.alt{background:#fff;color:var(--brand);border:2px solid var(--brand)}
+    .chip{display:inline-block;background:#efeaff;color:#4b42a8;padding:.35rem .7rem;border-radius:999px;font-size:.78rem;font-weight:700;letter-spacing:.3px}
+    header{
+      position:sticky;top:0;background:rgba(255,255,255,.85);backdrop-filter:blur(10px);
+      border-bottom:1px solid #f0eef8; z-index:10
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:.6rem;font-weight:800;font-size:1.1rem}
+    .brand .logo{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;box-shadow:0 8px 20px rgba(107,90,213,.35)}
+    .nav a{color:var(--ink);font-weight:600;margin-left:18px}
+    .hero{
+      display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;padding:42px 0 28px
+    }
+    .hero h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.08;margin:.4rem 0}
+    .lead{color:var(--muted);font-size:1.02rem}
+    .hero-card{
+      background:var(--card);border-radius:var(--radius);padding:20px 20px 8px;box-shadow:var(--shadow)
+    }
+    .hero-card .hero-img{width:100%;height:auto;border-radius:18px;box-shadow:var(--shadow);display:block;margin-bottom:10px}
+    .hero-card ul{display:grid;grid-template-columns:1fr 1fr;gap:10px 16px;margin:14px 0 0 0;padding:0;list-style:none}
+    .hero-card li{font-size:.94rem;color:var(--ink);display:flex;align-items:center;gap:.55rem}
+    .hero-card .tick{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:#e9fff3;color:var(--ok);font-weight:900}
+    section{padding:58px 0;}
+    section.alt{background:linear-gradient(135deg, rgba(168,216,234,.25), rgba(255,247,240,.8));border-radius:28px;margin-bottom:26px;padding:48px 28px;box-shadow:0 16px 30px rgba(0,0,0,.03);}
+    .bg-band{background:linear-gradient(120deg,#FFF7F0 0%,#E9F7FF 37%,#F4ECFF 72%);padding:28px 18px;border-radius:22px;margin-bottom:36px;}
+    .pill-points{display:flex;flex-wrap:wrap;gap:14px;margin-top:14px}
+    .pill{background:#fff;border:1px solid rgba(122,134,182,.15);border-radius:999px;padding:6px 14px;font-size:.85rem;display:flex;align-items:center;gap:.4rem;box-shadow:0 6px 18px rgba(0,0,0,.02);}
+    .section-title{font-size:1.8rem;margin:0 0 12px}
+    .muted{color:var(--muted)}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:var(--card);border-radius:16px;box-shadow:var(--shadow);padding:18px}
+    .card h3{margin:6px 0 6px}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .price{font-weight:800;font-size:2rem;color:var(--brand);margin:.2rem 0}
+    .table{width:100%;border-collapse:collapse}
+    .table th,.table td{padding:14px;border-bottom:1px solid #eee;text-align:left}
+    .faq details{background:#fbfaff;border:1px solid #efeaff;border-radius:12px;padding:14px;margin:10px 0}
+    .cta{background:linear-gradient(135deg,var(--brand),var(--brand-2)); color:#fff;border-radius:22px; padding:28px; display:grid;grid-template-columns:1.4fr .6fr; gap:18px; align-items:center}
+    .cta h2{margin:0}
+    footer{padding:28px 0;border-top:1px solid #f0eef8;color:#6b6f84}
+    .floating-wa{
+      position:fixed;right:18px;bottom:18px;z-index:20;
+      background:#25d366;color:#fff;border-radius:999px;padding:14px 16px;
+      display:flex;align-items:center;gap:.6rem;font-weight:800;box-shadow:0 14px 35px rgba(37,211,102,.35)
+    }
+    .floating-wa:hover{transform:translateY(-1px)}
+    .cards .card img.preview{width:100%;height:160px;object-fit:cover;border-radius:12px;margin-bottom:10px;}
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr}
+      .cards{grid-template-columns:1fr 1fr}
+      .cta{grid-template-columns:1fr}
+      section.alt{padding:42px 18px}
+    }
+    @media (max-width:640px){
+      .cards{grid-template-columns:1fr}
+      .nav a.hide-sm{display:none}
+      .hero-card ul{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating WhatsApp -->
+  <a class="floating-wa" href="https://wa.me/919899984791?text=Hi%20Saanidhya%2C%20please%20share%20details%20of%20your%20elder%20day%20care%20center." aria-label="Chat on WhatsApp">
+    <span>WhatsApp Us</span> 💬
+  </a>
+
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">🌿</div>
+        Saanidhya <span class="muted">Geriatric Day Care</span>
+      </div>
+      <nav>
+        <a href="#services" class="hide-sm">Services</a>
+        <a href="#pricing" class="hide-sm">Plans</a>
+        <a href="#contact" class="hide-sm">Contact</a>
+        <a href="https://wa.me/919899984791?text=Hi%2C%20please%20share%20program%20details" class="btn">Chat on WhatsApp</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero -->
+    <section class="hero">
+      <div>
+        <span class="chip">Doctor-Led • Elder Safe • Bengaluru</span>
+        <h1>Where Care Meets Companionship</h1>
+        <p class="lead">Serving South Bengaluru families – JP Nagar, Jayanagar, HSR Layout.</p>
+        <p class="lead">Daytime senior care that keeps the <strong>body active</strong>, the <strong>mind sharp</strong>, and the <strong>heart full</strong> — while families are at work.</p>
+        <div style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap">
+          <a class="btn" href="https://wa.me/919899984791?text=I%20want%20to%20book%20a%20center%20tour.">Book a Center Tour</a>
+          <a class="btn alt" href="#pricing">View Plans</a>
+        </div>
+      </div>
+      <div class="hero-card" aria-label="Key benefits">
+        <img class="hero-img" src="https://images.unsplash.com/photo-1523531294919-4aebecc9b8b5?auto=format&fit=crop&w=1000&q=60" alt="Elderly hands held with care">
+        <div class="muted" style="font-weight:700">Why families choose Saanidhya</div>
+        <ul>
+          <li><span class="tick">✓</span> Daily vitals, meds, and doctor rounds</li>
+          <li><span class="tick">✓</span> Physio, yoga & chair exercises</li>
+          <li><span class="tick">✓</span> Balanced, condition-specific meals</li>
+          <li><span class="tick">✓</span> Memory games, music & art therapy</li>
+          <li><span class="tick">✓</span> Safe interiors with ramps & grab bars</li>
+          <li><span class="tick">✓</span> Family WhatsApp updates & photos</li>
+        </ul>
+        <div style="margin:14px 0 10px">
+          <a class="btn" href="https://wa.me/919899984791?text=Share%20brochure%20and%20price%20details%2C%20please.">Send Brochure on WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Working family band -->
+    <div class="bg-band">
+      <h2 style="margin:0 0 6px">For working sons, daughters & caregivers 👨‍💻👩‍⚕️</h2>
+      <p class="muted" style="max-width:900px">When you are at work, we become your eyes, ears, and extended family. We keep parents engaged, supervised, and respected — so you can focus on your career without guilt.</p>
+      <div class="pill-points">
+        <div class="pill">✅ Daily WhatsApp updates</div>
+        <div class="pill">✅ No more parents alone at home</div>
+        <div class="pill">✅ Doctor & nurse on premises</div>
+        <div class="pill">✅ Safer than random help</div>
+        <div class="pill">✅ Social life for seniors</div>
+      </div>
+    </div>
+
+    <!-- Services -->
+    <section id="services" class="alt">
+      <h2 class="section-title">Holistic Daytime Care</h2>
+      <p class="muted">A joyful, supervised day for seniors — 9:00 AM to 6:00 PM.</p>
+      <div class="cards" style="margin-top:14px">
+        <div class="card">
+          <h3>Medical & Nursing</h3>
+          <p class="muted">Vitals tracking, medication reminders, doctor visits, emergency readiness.</p>
+        </div>
+        <div class="card">
+          <h3>Physio & Mobility</h3>
+          <p class="muted">Physiotherapy, balance training, fall-prevention, chair yoga, breathwork.</p>
+        </div>
+        <div class="card">
+          <h3>Nutrition & Meals</h3>
+          <p class="muted">Diabetic/low-salt/high-protein menus, hydration reminders, safe swallowing.</p>
+        </div>
+        <div class="card">
+          <h3>Cognitive & Emotional</h3>
+          <p class="muted">Memory games, music & art therapy, reading, devotional hour.</p>
+        </div>
+        <div class="card">
+          <h3>Social Circles</h3>
+          <p class="muted">Birthdays, festival days, movie afternoons, storytelling & laughs.</p>
+        </div>
+        <div class="card">
+          <h3>Family Connect</h3>
+          <p class="muted">Daily WhatsApp updates, photos, and monthly wellness summary.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- USP / Trust -->
+    <section>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Why Saanidhya?</h3>
+          <ul style="margin:8px 0 0 18px;color:var(--muted)">
+            <li>Doctor-led protocols for elder safety</li>
+            <li>Barrier-free interiors & fall-safe design</li>
+            <li>Standard operating procedures for meds & meals</li>
+            <li>Background-verified caregivers</li>
+            <li>Emergency tie-ups with nearby hospitals</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Pick-Up & Drop</h3>
+          <p class="muted">Door-to-door assisted transport available in JP Nagar, Jayanagar, HSR and nearby areas.</p>
+          <a class="btn" href="https://wa.me/919899984791?text=Confirm%20transport%20availability%20for%20my%20location">Check My Location</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="alt">
+      <h2 class="section-title">Simple Plans</h2>
+      <p class="muted">Transparent pricing. Pay monthly. Pause anytime.</p>
+      <div class="grid-2" style="margin-top:14px">
+        <div class="card">
+          <h3>Full Day (9 AM – 6 PM)</h3>
+          <div class="price">₹20,000 / month</div>
+          <ul style="margin:6px 0 0 18px;color:var(--muted)">
+            <li>Medical supervision & vitals</li>
+            <li>2 meals + snacks</li>
+            <li>Daily activities & physio group</li>
+            <li>Family WhatsApp updates</li>
+          </ul>
+          <div style="margin-top:12px">
+            <a class="btn" href="https://wa.me/919899984791?text=Enroll%20for%20Full%20Day%20plan">Enroll via WhatsApp</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Half Day (4–5 hrs)</h3>
+          <div class="price">₹12,000 / month</div>
+          <ul style="margin:6px 0 0 18px;color:var(--muted)">
+            <li>Medical supervision</li>
+            <li>1 meal + snacks</li>
+            <li>Activities & community time</li>
+          </ul>
+          <div style="margin-top:12px">
+            <a class="btn" href="https://wa.me/919899984791?text=Enroll%20for%20Half%20Day%20plan">Enroll via WhatsApp</a>
+          </div>
+        </div>
+      </div>
+      <p class="muted" style="margin-top:10px"><strong>Add-ons:</strong> Physiotherapy (₹500–₹1,000 / session), Transport (₹3,000–₹5,000 / month), Diet consult, Yoga one-to-one.</p>
+    </section>
+
+    <!-- Schedule Snapshot -->
+    <section>
+      <h2 class="section-title">A Day at Saanidhya</h2>
+      <table class="table" aria-label="Typical day schedule">
+        <thead>
+          <tr><th>Time</th><th>Activity</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>09:00</td><td>Welcome & Vitals</td><td>BP, sugar (as needed), meds reminder</td></tr>
+          <tr><td>10:00</td><td>Chair Yoga & Breathwork</td><td>Fall-safe, therapist-guided</td></tr>
+          <tr><td>11:00</td><td>Snack & Social Hour</td><td>Tea, fruits, conversations</td></tr>
+          <tr><td>12:30</td><td>Nutritious Lunch</td><td>Condition-sensitive meal plan</td></tr>
+          <tr><td>14:00</td><td>Games / Music / Art</td><td>Cognitive & memory stimulation</td></tr>
+          <tr><td>15:30</td><td>Physio Group</td><td>Mobility & balance</td></tr>
+          <tr><td>16:30</td><td>Tea & Wrap</td><td>Family updates on WhatsApp</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Gallery -->
+    <section>
+      <h2 class="section-title">A Glimpse of Care</h2>
+      <p class="muted">Representative images — replace these URLs with your own photos later.</p>
+      <div class="cards" style="margin-top:14px">
+        <div class="card">
+          <img class="preview" src="https://images.unsplash.com/photo-1517495306984-b6b15e2f84fc?auto=format&fit=crop&w=900&q=60" alt="Gentle physiotherapy session for seniors">
+          <h3>Safe Mobility</h3>
+          <p class="muted">Physiotherapy and balance training in a calm environment.</p>
+        </div>
+        <div class="card">
+          <img class="preview" src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=900&q=60" alt="Nutritious Indian meal served in a homely setting">
+          <h3>Nutritious Meals</h3>
+          <p class="muted">Condition-specific diet plans designed by our nutrition team.</p>
+        </div>
+        <div class="card">
+          <img class="preview" src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=900&q=60" alt="Seniors enjoying a social activity and conversation">
+          <h3>Joyful Social Circles</h3>
+          <p class="muted">Music, art, stories, and friendships that brighten the day.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Working Family Benefit / Home within home -->
+    <section class="alt">
+      <div class="grid-2">
+        <div>
+          <h2 class="section-title">“Home within home” experience</h2>
+          <p class="muted">Elders don’t want hospitals. They want people, routine, and respect. We have created a cheerful, pastel-toned space that looks like a community lounge — not a clinic. Warm lighting, soft chairs, devotional corner, music hour, and familiar Indian meals make it easy for seniors to settle in.</p>
+          <ul style="margin:12px 0 0 18px;color:var(--muted)">
+            <li>Structured day → reduces confusion and anxiety</li>
+            <li>Known faces every day → emotional security</li>
+            <li>Group activities → slows cognitive decline</li>
+            <li>Doctor supervision → early spotting of problems</li>
+            <li>Family integration → we send photos, you stay involved</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>How families benefit</h3>
+          <p class="muted">Your workday becomes lighter when you know parents are safe.</p>
+          <ul style="margin:12px 0 0 18px;color:var(--muted)">
+            <li>No need to hunt for trustworthy maids/caretakers daily</li>
+            <li>Lower risk of falls or missed medicines at home</li>
+            <li>Parents become more active → fewer hospital visits</li>
+            <li>You can join them in the evening fresh & guilt-free</li>
+            <li>Ideal for NRIs with parents in Bengaluru</li>
+          </ul>
+          <div style="margin-top:14px">
+            <a class="btn" href="https://wa.me/919899984791?text=I%20am%20working%20and%20need%20daytime%20care%20for%20my%20parents%20in%20Bengaluru">Share My Situation</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Visit Us</h3>
+          <p class="muted">Saanidhya Geriatric Day Care<br>JP Nagar • Jayanagar • HSR Layout<br>Bengaluru 560078</p>
+          <p><a href="https://maps.google.com?q=JP+Nagar+Bengaluru+560078" target="_blank" rel="noopener">Open in Google Maps →</a></p>
+        </div>
+        <div class="card">
+          <h3>Talk to Us</h3>
+          <p><strong>Phone:</strong> <a href="tel:+919899984791">+91 98999 84791</a></p>
+          <p><strong>WhatsApp:</strong> <a href="https://wa.me/919899984791">https://wa.me/919899984791</a></p>
+          <p><strong>Email:</strong> <a href="mailto:hello@saanidhya.care">hello@saanidhya.care</a></p>
+          <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn" href="https://wa.me/919899984791?text=Please%20share%20program%20details%20and%20pricing.">Get Details on WhatsApp</a>
+            <a class="btn alt" href="https://wa.me/919899984791?text=Share%20digital%20brochure%20PDF%2C%20please.">Request Brochure PDF</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
+        <div>© <span id="year"></span> Saanidhya Geriatric Day Care · All rights reserved.</div>
+        <div class="muted">“Add life to years, not just years to life.”</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
