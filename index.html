@@ -145,6 +145,7 @@
           <a class="btn" href="https://wa.me/919899984791?text=I%20want%20to%20book%20a%20center%20tour."><span id="i18n-tour-btn">Book a Center Tour</span></a>
           <a class="btn alt" href="#pricing"><span id="i18n-plans-btn">View Plans</span></a>
         </div>
+        <p class="lead" id="i18n-inspire-hero">Because parents deserve company, care and cheerful days — and you deserve a guilt‑free workday.</p>
       </div>
       <div class="hero-card" aria-label="Key benefits">
         <img class="hero-img" src="https://images.unsplash.com/photo-1523531294919-4aebecc9b8b5?auto=format&fit=crop&w=1000&q=60" alt="Elderly hands held with care">
@@ -566,12 +567,12 @@
 
     // Eligibility logic
     function checkEligibility(){
-      const age = Number(document.getElementById('age').value||0);
-      const mobility = document.getElementById('mobility').value;
-      const memory = document.getElementById('memory').checked;
-      const falls = document.getElementById('falls').checked;
-      const diabetes = document.getElementById('diabetes').checked;
-      const incontinence = document.getElementById('incontinence').checked;
+      const age = Number(document.getElementById('age')?.value||0);
+      const mobility = document.getElementById('mobility')?.value||'';
+      const memory = document.getElementById('memory')?.checked||false;
+      const falls = document.getElementById('falls')?.checked||false;
+      const diabetes = document.getElementById('diabetes')?.checked||false;
+      const incontinence = document.getElementById('incontinence')?.checked||false;
 
       let suitability = 'Suitable for Day Care';
       let notes = [];
@@ -583,29 +584,34 @@
       if(incontinence) notes.push('Plan restroom schedule and hygiene support.');
 
       const result = document.getElementById('eligibilityResult');
-      result.innerHTML = `<div style="padding:12px;border-radius:12px;background:#f6f8ff;border:1px solid #eaeaff"><strong>${suitability}</strong><br>${notes.join(' • ')}</div>`;
+      if(result){
+        result.innerHTML = `<div style="padding:12px;border-radius:12px;background:#f6f8ff;border:1px solid #eaeaff"><strong>${suitability}</strong><br>${notes.join(' • ')}</div>`;
+      }
     }
     function resetEligibility(){
-      document.getElementById('eligibilityForm').reset();
-      document.getElementById('eligibilityResult').innerHTML='';
+      const form = document.getElementById('eligibilityForm');
+      if(form){ form.reset(); }
+      const res = document.getElementById('eligibilityResult');
+      if(res){ res.innerHTML=''; }
     }
 
     // Cost calculator
     function computeCosts(){
-      const a = Number(document.getElementById('attendantSalary').value||0);
-      const x = Number(document.getElementById('extraCharges').value||0);
-      const d = Number(document.getElementById('dayCareFee').value||0);
-      const t = Number(document.getElementById('transportFee').value||0);
+      const a = Number(document.getElementById('attendantSalary')?.value||0);
+      const x = Number(document.getElementById('extraCharges')?.value||0);
+      const d = Number(document.getElementById('dayCareFee')?.value||0);
+      const t = Number(document.getElementById('transportFee')?.value||0);
       const home = a + x;
       const day = d + t;
       const save = home - day;
       const tag = save > 0 ? `You save about ₹${save.toLocaleString('en-IN')} / month with Day Care.` : `Day Care costs about ₹${Math.abs(save).toLocaleString('en-IN')} more — but adds medical supervision, meals & socialization.`;
-      document.getElementById('costResult').textContent = `Home Attendant ≈ ₹${home.toLocaleString('en-IN')} vs Day Care ≈ ₹${day.toLocaleString('en-IN')}. ${tag}`;
+      const el = document.getElementById('costResult');
+      if(el){ el.textContent = `Home Attendant ≈ ₹${home.toLocaleString('en-IN')} vs Day Care ≈ ₹${day.toLocaleString('en-IN')}. ${tag}`; }
     }
 
     // Transport checker → WhatsApp
     function openWhatsAppForPincode(){
-      const pin = (document.getElementById('pincode').value||'').trim();
+      const pin = (document.getElementById('pincode')?.value||'').trim();
       const msg = encodeURIComponent(`My pincode is ${pin}. Do you provide pick-up & drop in this area?`);
       const link = `https://wa.me/919899984791?text=${msg}`;
       window.open(link, '_blank');
@@ -649,15 +655,19 @@ Locations: ${l}`
         lead2: 'Daytime senior care that keeps the <strong>body active</strong>, the <strong>mind sharp</strong>, and the <strong>heart full</strong> — while families are at work.',
         tourBtn: 'Book a Center Tour',
         plansBtn: 'View Plans',
+        inspireHero: 'Because parents deserve company, care and cheerful days — and you deserve a guilt‑free workday.',
+        inspireCTA: 'Give your parents a joyful day. Give yourself peace at work.',
         toggle: 'ಕನ್ನಡ'
       },
       kn: {
         chip: 'ವೈದ್ಯರ ನೇತೃತ್ವ • ವಯೋವೃದ್ಧರಿಗೆ ಸುರಕ್ಷಿತ • ಬೆಂಗಳೂರು',
         title: 'ಕಾಳಜಿಯೂ ಸಹವಾಸವೂ ಒಂದೇ ಸ್ಥಳದಲ್ಲಿ',
         lead1: 'ದಕ್ಷಿಣ ಬೆಂಗಳೂರಿನ ಕುಟುಂಬಗಳಿಗೆ ಸೇವೆ – ಜೆ.ಪಿ. ನಗರ, ಜಯನಗರ, ಎಚ್‌ಎಸ್‌ಆರ್ ಲೇಔಟ್.',
-        lead2: 'ಕೆಲಸದเวลೆಯಲ್ಲಿ ಅವರ ದಿನವನ್ನು ನಾವು ಸಕ್ರಿಯ, ಸುರಕ್ಷಿತ ಮತ್ತು ಸಂತೋಷಕರವಾಗಿಡುತ್ತೇವೆ.',
+        lead2: 'ಕೆಲಸದ ಸಮಯದಲ್ಲಿ ನಾವು ಅವರ ದಿನವನ್ನು ಸಕ್ರಿಯ, ಸುರಕ್ಷಿತ ಮತ್ತು ಸಂತೋಷಕರವಾಗಿಡುತ್ತೇವೆ.',
         tourBtn: 'ಕೇಂದ್ರ ಭೇಟಿ ಬುಕ್ ಮಾಡಿ',
         plansBtn: 'ಯೋಜನೆಗಳನ್ನು ನೋಡಿ',
+        inspireHero: 'ಮಾತಾಪಿತರಿಗೂ ಸಂಗಾತಿ ಮತ್ತು ಕಾಳಜಿ, ನಿಮಗೂ ನಿರಾಳ ಕೆಲಸದ ದಿನ.',
+        inspireCTA: 'ನಿಮ್ಮ ಪೋಷಕರಿಗೆ ಸಂತೋಷದ ದಿನ – ನಿಮಗೆ ಮನಶಾಂತಿ.',
         toggle: 'English'
       }
     };
@@ -672,6 +682,8 @@ Locations: ${l}`
       setHTML('i18n-lead2', t.lead2);
       setText('i18n-tour-btn', t.tourBtn);
       setText('i18n-plans-btn', t.plansBtn);
+      setText('i18n-inspire-hero', t.inspireHero);
+      setText('i18n-inspire', t.inspireCTA);
       const btn = document.getElementById('langToggle'); if(btn){ btn.textContent = t.toggle; }
       localStorage.setItem('lang', lang);
     }
@@ -687,6 +699,49 @@ Locations: ${l}`
         });
       }
     })();
+
+    // === Google Sheets → Liveboard (gviz JSON) ===
+    const SHEET_ID = '1XyRJMKLOzPLUXAFP6TGrRsMr6-KPfCqfmtnXR4Z07yQ';
+    async function gvizFetch(sheet, range='A1:Z100'){
+      const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(sheet)}&range=${encodeURIComponent(range)}`;
+      const res = await fetch(url, {mode:'cors'});
+      const text = await res.text();
+      const json = JSON.parse(text.substring(text.indexOf('{'), text.lastIndexOf('}')+1));
+      const rows = (json.table.rows||[]).map(r => (r.c||[]).map(c => c ? c.v : ''));
+      const cols = (json.table.cols||[]).map(c => c.label || '');
+      return {cols, rows};
+    }
+
+    async function loadLiveboard(){
+      try{
+        // Vitals: expect columns [Metric, Value, Time]
+        const vit = await gvizFetch('Vitals','A1:C20');
+        const vUL = document.getElementById('vitalsList');
+        if(vUL && vit.rows.length){
+          vUL.innerHTML = vit.rows.map(r => `<li><strong>${r[0]}:</strong> ${r[1]} <span class="muted">${r[2]||''}</span></li>`).join('');
+        }
+        // Activities: [Activity, Status/Time]
+        const act = await gvizFetch('Activities','A1:C30');
+        const aUL = document.getElementById('activitiesList');
+        if(aUL && act.rows.length){
+          aUL.innerHTML = act.rows.map(r => `<li>${r[0]} ${r[1] ? '— '+r[1] : ''} ${r[2] ? '<span class=\"muted\">('+r[2]+')</span>' : ''}</li>`).join('');
+        }
+        // Photos: [URL, Caption]
+        const pho = await gvizFetch('Photos','A1:B12');
+        const grid = document.getElementById('photosGrid');
+        if(grid && pho.rows.length){
+          grid.innerHTML = pho.rows.map(r => `<figure><img class="preview" src="${r[0]}" alt="${r[1]||'Care photo'}"><figcaption class="muted" style="font-size:.85rem;margin-top:6px">${r[1]||''}</figcaption></figure>`).join('');
+        }
+      }catch(err){
+        console.warn('Liveboard load failed. Make sure the sheet is viewable to anyone with the link or published to the web.', err);
+      }finally{
+        refreshLiveTime();
+      }
+    }
+
+    loadLiveboard();
+    // Refresh every 5 minutes
+    setInterval(loadLiveboard, 5*60*1000);
   </script>
 </body>
 </html>
