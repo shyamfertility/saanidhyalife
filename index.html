@@ -100,6 +100,12 @@
       .nav a.hide-sm{display:none}
       .hero-card ul{grid-template-columns:1fr}
     }
+      /* Timeline styles */
+    .timeline{position:relative;display:grid;gap:14px}
+    .timeline:before{content:"";position:absolute;left:14px;top:0;bottom:0;width:4px;background:linear-gradient(180deg,#e9ecff,#f7f8ff)}
+    .t-item{position:relative;display:grid;grid-template-columns:120px 1fr;gap:12px;align-items:start;background:#fff;border:1px solid #eef0fa;border-radius:16px;padding:12px 14px;box-shadow:var(--shadow)}
+    .t-time{font-weight:800;color:#4b42a8}
+    .t-dot{position:absolute;left:8px;top:18px;width:16px;height:16px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--brand-2));box-shadow:0 6px 14px rgba(122,134,182,.35)}
   </style>
 </head>
 <body>
@@ -118,7 +124,10 @@
       <nav>
         <a href="#services" class="hide-sm">Services</a>
         <a href="#pricing" class="hide-sm">Plans</a>
-        <a href="#contact" class="hide-sm">Contact</a>
+        <a href="#tour" class="hide-sm">Tour</a>
+        <a href="#liveboard" class="hide-sm">Liveboard</a>
+        <a href="#corporate" class="hide-sm">Corporate</a>
+        <button class="btn alt hide-sm" id="langToggle" type="button">ಕನ್ನಡ</button>
         <a href="https://wa.me/919899984791?text=Hi%2C%20please%20share%20program%20details" class="btn">Chat on WhatsApp</a>
       </nav>
     </div>
@@ -128,13 +137,13 @@
     <!-- Hero -->
     <section class="hero">
       <div>
-        <span class="chip">Doctor-Led • Elder Safe • Bengaluru</span>
-        <h1>Where Care Meets Companionship</h1>
-        <p class="lead">Serving South Bengaluru families – JP Nagar, Jayanagar, HSR Layout.</p>
-        <p class="lead">Daytime senior care that keeps the <strong>body active</strong>, the <strong>mind sharp</strong>, and the <strong>heart full</strong> — while families are at work.</p>
+        <span class="chip" id="i18n-chip">Doctor-Led • Elder Safe • Bengaluru</span>
+        <h1 id="i18n-hero-title">Where Care Meets Companionship</h1>
+        <p class="lead" id="i18n-lead1">Serving South Bengaluru families – JP Nagar, Jayanagar, HSR Layout.</p>
+        <p class="lead" id="i18n-lead2">Daytime senior care that keeps the <strong>body active</strong>, the <strong>mind sharp</strong>, and the <strong>heart full</strong> — while families are at work.</p>
         <div style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap">
-          <a class="btn" href="https://wa.me/919899984791?text=I%20want%20to%20book%20a%20center%20tour.">Book a Center Tour</a>
-          <a class="btn alt" href="#pricing">View Plans</a>
+          <a class="btn" href="https://wa.me/919899984791?text=I%20want%20to%20book%20a%20center%20tour."><span id="i18n-tour-btn">Book a Center Tour</span></a>
+          <a class="btn alt" href="#pricing"><span id="i18n-plans-btn">View Plans</span></a>
         </div>
       </div>
       <div class="hero-card" aria-label="Key benefits">
@@ -255,22 +264,18 @@
     </section>
 
     <!-- Schedule Snapshot -->
-    <section>
+    <section id="day" class="alt">
       <h2 class="section-title">A Day at Saanidhya</h2>
-      <table class="table" aria-label="Typical day schedule">
-        <thead>
-          <tr><th>Time</th><th>Activity</th><th>Notes</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>09:00</td><td>Welcome & Vitals</td><td>BP, sugar (as needed), meds reminder</td></tr>
-          <tr><td>10:00</td><td>Chair Yoga & Breathwork</td><td>Fall-safe, therapist-guided</td></tr>
-          <tr><td>11:00</td><td>Snack & Social Hour</td><td>Tea, fruits, conversations</td></tr>
-          <tr><td>12:30</td><td>Nutritious Lunch</td><td>Condition-sensitive meal plan</td></tr>
-          <tr><td>14:00</td><td>Games / Music / Art</td><td>Cognitive & memory stimulation</td></tr>
-          <tr><td>15:30</td><td>Physio Group</td><td>Mobility & balance</td></tr>
-          <tr><td>16:30</td><td>Tea & Wrap</td><td>Family updates on WhatsApp</td></tr>
-        </tbody>
-      </table>
+      <p class="muted">Rituals that restore dignity, rhythm and joy — while families work without worry.</p>
+      <div class="timeline" style="margin-top:12px">
+        <div class="t-item"><span class="t-dot"></span><div class="t-time">09:00</div><div><h3>Welcome & Vitals</h3><p class="muted">BP, sugar (as needed), hydration start, medication check-in.</p></div></div>
+        <div class="t-item"><span class="t-dot"></span><div class="t-time">10:00</div><div><h3>Chair Yoga & Breathwork</h3><p class="muted">Fall-safe mobility, lung opening, confidence building.</p></div></div>
+        <div class="t-item"><span class="t-dot"></span><div class="t-time">11:00</div><div><h3>Snack & Social Hour</h3><p class="muted">Tea, fruits, friends, board games and banter.</p></div></div>
+        <div class="t-item"><span class="t-dot"></span><div class="t-time">12:30</div><div><h3>Nutritious Lunch</h3><p class="muted">Condition-specific menus (diabetic/low-salt/high-protein).</p></div></div>
+        <div class="t-item"><span class="t-dot"></span><div class="t-time">14:00</div><div><h3>Mind & Music</h3><p class="muted">Memory games, reading circle, bhajans or retro melodies.</p></div></div>
+        <div class="t-item"><span class="t-dot"></span><div class="t-time">15:30</div><div><h3>Physio Group</h3><p class="muted">Balance, gait, strength — supervised by our therapist.</p></div></div>
+        <div class="t-item"><span class="t-dot"></span><div class="t-time">16:30</div><div><h3>Evening Wrap</h3><p class="muted">Tea, gratitude round; family WhatsApp updates & photos.</p></div></div>
+      </div>
     </section>
 
     <!-- Gallery -->
@@ -328,6 +333,201 @@
     </section>
 
     <!-- Contact -->
+    
+
+      
+    <!-- Eligibility Checker -->
+    <section id="eligibility" class="alt">
+      <h2 class="section-title">Is Day Care right for my parent?</h2>
+      <p class="muted">Quick self-check. This is not a diagnosis — it helps us suggest the right level of care.</p>
+      <div class="card" style="margin-top:14px">
+        <form id="eligibilityForm" onsubmit="return false" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+          <label>Parent Age
+            <input required type="number" min="40" max="110" id="age" placeholder="e.g., 74" style="width:100%;padding:10px;border:1px solid #e6e6ef;border-radius:10px">
+          </label>
+          <label>Mobility
+            <select id="mobility" style="width:100%;padding:10px;border:1px solid #e6e6ef;border-radius:10px">
+              <option>Independent / uses stick</option>
+              <option>Needs arm support</option>
+              <option>Wheelchair</option>
+              <option>Bed-bound</option>
+            </select>
+          </label>
+          <label><input type="checkbox" id="memory"> Memory loss / confusion</label>
+          <label><input type="checkbox" id="falls"> Recent falls</label>
+          <label><input type="checkbox" id="diabetes"> Diabetes / sugar monitoring</label>
+          <label><input type="checkbox" id="incontinence"> Incontinence</label>
+          <div style="grid-column:1/-1;display:flex;gap:10px;flex-wrap:wrap">
+            <button class="btn" onclick="checkEligibility()">Check suitability</button>
+            <button class="btn alt" onclick="resetEligibility()">Reset</button>
+          </div>
+          <div id="eligibilityResult" class="muted" style="grid-column:1/-1;font-weight:700"></div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Cost Comparison Calculator -->
+    <section id="calculator">
+      <h2 class="section-title">Cost Calculator: Home Attendant vs Day Care</h2>
+      <div class="card" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+        <label>Attendant monthly salary (₹)
+          <input type="number" id="attendantSalary" value="22000" style="width:100%;padding:10px;border:1px solid #e6e6ef;border-radius:10px">
+        </label>
+        <label>Extra charges (food, agency fee, overtime) per month (₹)
+          <input type="number" id="extraCharges" value="3000" style="width:100%;padding:10px;border:1px solid #e6e6ef;border-radius:10px">
+        </label>
+        <label>Day Care fee (₹/month)
+          <input type="number" id="dayCareFee" value="20000" style="width:100%;padding:10px;border:1px solid #e6e6ef;border-radius:10px">
+        </label>
+        <label>Transport add-on (₹/month)
+          <input type="number" id="transportFee" value="4000" style="width:100%;padding:10px;border:1px solid #e6e6ef;border-radius:10px">
+        </label>
+        <div style="grid-column:1/-1;display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn" onclick="computeCosts()">Compute</button>
+          <div id="costResult" class="muted" style="font-weight:700"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Outcomes & Safety -->
+    <section id="outcomes" class="alt">
+      <h2 class="section-title">Outcomes & Safety</h2>
+      <div class="cards" style="margin-top:10px">
+        <div class="card"><h3>Medication Adherence</h3><p class="muted">Daily reminders & logs reviewed by nurse.</p></div>
+        <div class="card"><h3>Fall Prevention</h3><p class="muted">Balance training, grab bars, anti-slip, supervised mobility.</p></div>
+        <div class="card"><h3>Cognitive Health</h3><p class="muted">Memory games, music/art therapy, reading hour, devotional time.</p></div>
+      </div>
+      <p class="muted" style="margin-top:10px">We follow doctor-led SOPs, incident reporting, and monthly wellness summaries for families.</p>
+    </section>
+
+    <!-- Transport Checker -->
+    <section id="transport">
+      <h2 class="section-title">Transport Availability</h2>
+      <div class="card" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+        <label>Enter your PIN code
+          <input type="text" id="pincode" maxlength="6" placeholder="e.g., 560078" style="width:100%;padding:10px;border:1px solid #e6e6ef;border-radius:10px">
+        </label>
+        <div style="display:flex;align-items:end">
+          <button class="btn" onclick="openWhatsAppForPincode()">Ask on WhatsApp</button>
+        </div>
+        <p class="muted" style="grid-column:1/-1">Tip: We currently serve JP Nagar, Jayanagar, HSR Layout and nearby areas. Ask us about your street.</p>
+      </div>
+    </section>
+
+    <!-- Special CTAs -->
+    <section id="special">
+      <div class="grid-2">
+        <div class="card">
+          <h3>🎟️ Trial Day Pass</h3>
+          <p class="muted">Try one full day before you enroll. Limited slots each week.</p>
+          <a class="btn" href="https://wa.me/919899984791?text=I'd%20like%20to%20book%20a%20Trial%20Day%20Pass%20for%20my%20parent">Book Trial Day</a>
+        </div>
+        <div class="card">
+          <h3>🌏 NRI Family Portal</h3>
+          <p class="muted">Monthly video check-ins, digital reports, and WhatsApp updates for families abroad.</p>
+          <a class="btn" href="https://wa.me/919899984791?text=Share%20details%20about%20NRI%20family%20reports%20and%20video%20check-ins">Get NRI Details</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQs -->
+    <section id="faq" class="alt">
+      <h2 class="section-title">FAQ</h2>
+      <div class="faq">
+        <details><summary>Do you handle elders with dementia or Parkinson's?</summary><p class="muted">Yes, many families choose day care for structured daytime support. Suitability is assessed case-by-case by our medical team.</p></details>
+        <details><summary>What happens in a medical emergency?</summary><p class="muted">We follow a stabilization protocol, notify family immediately, and coordinate transfer with partner hospitals as required.</p></details>
+        <details><summary>Can I pause or switch plans?</summary><p class="muted">Yes, plans are monthly. Talk to us for short travel pauses.</p></details>
+      </div>
+    </section>
+
+  
+
+    <!-- Liveboard (mock) -->
+    <section id="liveboard" class="alt">
+      <h2 class="section-title">Family Liveboard</h2>
+      <p class="muted">Privacy-safe preview. Connects to Google Sheets for demo data.</p>
+      <div class="cards" style="margin-top:12px">
+        <div class="card">
+          <h3>Vitals today</h3>
+          <ul id="vitalsList" class="muted" style="margin:6px 0 0 18px">
+            <li>Loading vitals…</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Activities</h3>
+          <ul id="activitiesList" class="muted" style="margin:6px 0 0 18px">
+            <li>Loading activities…</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Photos</h3>
+          <div id="photosGrid" style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+            <div class="muted">Loading photos…</div>
+          </div>
+        </div>
+      </div>
+      <p class="muted" style="margin-top:8px">Last updated: <span id="liveUpdateTime">—</span></p>
+    </section>
+
+    <!-- Virtual Tour -->
+    <section id="tour">
+      <h2 class="section-title">Virtual Tour</h2>
+      <p class="muted">Preview our barrier-free, pastel-toned spaces. Replace with your actual photos or 360° embeds later.</p>
+      <div class="cards" style="margin-top:14px">
+        <div class="card"><img class="preview" src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=60" alt="Lounge" /><h3>Community Lounge</h3></div>
+        <div class="card"><img class="preview" src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=900&q=60" alt="Physio" /><h3>Physio Bay</h3></div>
+        <div class="card"><img class="preview" src="https://images.unsplash.com/photo-1511910849309-0dffb6f8225a?auto=format&fit=crop&w=900&q=60" alt="Dining" /><h3>Dining & Nutrition</h3></div>
+      </div>
+    </section>
+
+    <!-- Corporate Partnerships -->
+    <section id="corporate" class="alt">
+      <h2 class="section-title">Corporate & HR Partnerships</h2>
+      <p class="muted">Offer a first-of-its-kind eldercare benefit for employees with ageing parents in Bengaluru — reserved trial slots, transport coverage map, and monthly reports.</p>
+      <div class="grid-2" style="margin-top:12px">
+        <div class="card">
+          <h3>Partner Benefits</h3>
+          <ul class="muted" style="margin:6px 0 0 18px">
+            <li>Reserved Trial Day Passes every month</li>
+            <li>Employee pricing and transport coverage by PIN code</li>
+            <li>Monthly utilization & outcomes snapshot</li>
+            <li>Caregiver workshops at your campus</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Enquire for your company</h3>
+          <form onsubmit="return false" id="corpForm" style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+            <input type="text" id="corpCompany" placeholder="Company name *" required style="padding:10px;border:1px solid #e6e6ef;border-radius:10px">
+            <input type="text" id="corpName" placeholder="Your name *" required style="padding:10px;border:1px solid #e6e6ef;border-radius:10px">
+            <input type="email" id="corpEmail" placeholder="Email *" required style="padding:10px;border:1px solid #e6e6ef;border-radius:10px">
+            <input type="tel" id="corpPhone" placeholder="Phone *" required style="padding:10px;border:1px solid #e6e6ef;border-radius:10px">
+            <input type="number" id="corpHeadcount" placeholder="Employees in BLR" style="padding:10px;border:1px solid #e6e6ef;border-radius:10px">
+            <textarea id="corpLocations" placeholder="Office locations / pincodes" rows="3" style="grid-column:1/-1;padding:10px;border:1px solid #e6e6ef;border-radius:10px"></textarea>
+            <div style="grid-column:1/-1;display:flex;gap:10px">
+              <button class="btn" onclick="corpSubmit()">Send on WhatsApp</button>
+              <button class="btn alt" onclick="document.getElementById('corpForm').reset()">Reset</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  
+
+    <!-- Emotional CTA -->
+    <section class="alt" id="promise">
+      <div class="cta">
+        <div>
+          <h2 id="i18n-inspire">Give your parents a joyful day. Give yourself peace at work.</h2>
+          <p class="muted">Saanidhya is more than day care — it’s a promise that your parents will be safe, engaged and respected until you return.</p>
+        </div>
+        <div>
+          <a class="btn" href="https://wa.me/919899984791?text=I%20want%20to%20book%20a%20center%20tour.">Book a Trial Day</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact (moved to last) -->
     <section id="contact">
       <h2 class="section-title">Contact</h2>
       <div class="grid-2">
@@ -361,7 +561,132 @@
   </footer>
 
   <script>
+    // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Eligibility logic
+    function checkEligibility(){
+      const age = Number(document.getElementById('age').value||0);
+      const mobility = document.getElementById('mobility').value;
+      const memory = document.getElementById('memory').checked;
+      const falls = document.getElementById('falls').checked;
+      const diabetes = document.getElementById('diabetes').checked;
+      const incontinence = document.getElementById('incontinence').checked;
+
+      let suitability = 'Suitable for Day Care';
+      let notes = [];
+
+      if(mobility === 'Bed-bound') { suitability = 'Needs Home Nursing / Rehab'; notes.push('Bed-bound status generally needs 24x7 support.'); }
+      if(memory) notes.push('Cognitive stimulation and structured routine recommended.');
+      if(falls) notes.push('Add balance training & fall-prevention plan.');
+      if(diabetes) notes.push('Enable sugar checks and diet plan.');
+      if(incontinence) notes.push('Plan restroom schedule and hygiene support.');
+
+      const result = document.getElementById('eligibilityResult');
+      result.innerHTML = `<div style="padding:12px;border-radius:12px;background:#f6f8ff;border:1px solid #eaeaff"><strong>${suitability}</strong><br>${notes.join(' • ')}</div>`;
+    }
+    function resetEligibility(){
+      document.getElementById('eligibilityForm').reset();
+      document.getElementById('eligibilityResult').innerHTML='';
+    }
+
+    // Cost calculator
+    function computeCosts(){
+      const a = Number(document.getElementById('attendantSalary').value||0);
+      const x = Number(document.getElementById('extraCharges').value||0);
+      const d = Number(document.getElementById('dayCareFee').value||0);
+      const t = Number(document.getElementById('transportFee').value||0);
+      const home = a + x;
+      const day = d + t;
+      const save = home - day;
+      const tag = save > 0 ? `You save about ₹${save.toLocaleString('en-IN')} / month with Day Care.` : `Day Care costs about ₹${Math.abs(save).toLocaleString('en-IN')} more — but adds medical supervision, meals & socialization.`;
+      document.getElementById('costResult').textContent = `Home Attendant ≈ ₹${home.toLocaleString('en-IN')} vs Day Care ≈ ₹${day.toLocaleString('en-IN')}. ${tag}`;
+    }
+
+    // Transport checker → WhatsApp
+    function openWhatsAppForPincode(){
+      const pin = (document.getElementById('pincode').value||'').trim();
+      const msg = encodeURIComponent(`My pincode is ${pin}. Do you provide pick-up & drop in this area?`);
+      const link = `https://wa.me/919899984791?text=${msg}`;
+      window.open(link, '_blank');
+    }
+
+    // Liveboard last updated time
+    function refreshLiveTime(){
+      const el = document.getElementById('liveUpdateTime');
+      if(el){ el.textContent = new Date().toLocaleString('en-IN'); }
+    }
+    refreshLiveTime();
+    setInterval(refreshLiveTime, 60 * 1000);
+
+    // Corporate form → WhatsApp
+    function corpSubmit(){
+      const c = document.getElementById('corpCompany').value.trim();
+      const n = document.getElementById('corpName').value.trim();
+      const e = document.getElementById('corpEmail').value.trim();
+      const p = document.getElementById('corpPhone').value.trim();
+      const h = document.getElementById('corpHeadcount').value.trim();
+      const l = document.getElementById('corpLocations').value.trim();
+      if(!c || !n || !e || !p){ alert('Please fill the required fields.'); return; }
+      const msg = encodeURIComponent(
+        `Corporate partnership enquiry:
+Company: ${c}
+Contact: ${n}
+Email: ${e}
+Phone: ${p}
+Employees in BLR: ${h}
+Locations: ${l}`
+      );
+      window.open(`https://wa.me/919899984791?text=${msg}`, '_blank');
+    }
+
+    // === Simple bilingual toggle (EN / Kannada) ===
+    const i18n = {
+      en: {
+        chip: 'Doctor-Led • Elder Safe • Bengaluru',
+        title: 'Where Care Meets Companionship',
+        lead1: 'Serving South Bengaluru families – JP Nagar, Jayanagar, HSR Layout.',
+        lead2: 'Daytime senior care that keeps the <strong>body active</strong>, the <strong>mind sharp</strong>, and the <strong>heart full</strong> — while families are at work.',
+        tourBtn: 'Book a Center Tour',
+        plansBtn: 'View Plans',
+        toggle: 'ಕನ್ನಡ'
+      },
+      kn: {
+        chip: 'ವೈದ್ಯರ ನೇತೃತ್ವ • ವಯೋವೃದ್ಧರಿಗೆ ಸುರಕ್ಷಿತ • ಬೆಂಗಳೂರು',
+        title: 'ಕಾಳಜಿಯೂ ಸಹವಾಸವೂ ಒಂದೇ ಸ್ಥಳದಲ್ಲಿ',
+        lead1: 'ದಕ್ಷಿಣ ಬೆಂಗಳೂರಿನ ಕುಟುಂಬಗಳಿಗೆ ಸೇವೆ – ಜೆ.ಪಿ. ನಗರ, ಜಯನಗರ, ಎಚ್‌ಎಸ್‌ಆರ್ ಲೇಔಟ್.',
+        lead2: 'ಕೆಲಸದเวลೆಯಲ್ಲಿ ಅವರ ದಿನವನ್ನು ನಾವು ಸಕ್ರಿಯ, ಸುರಕ್ಷಿತ ಮತ್ತು ಸಂತೋಷಕರವಾಗಿಡುತ್ತೇವೆ.',
+        tourBtn: 'ಕೇಂದ್ರ ಭೇಟಿ ಬುಕ್ ಮಾಡಿ',
+        plansBtn: 'ಯೋಜನೆಗಳನ್ನು ನೋಡಿ',
+        toggle: 'English'
+      }
+    };
+
+    function applyLang(lang){
+      const t = i18n[lang] || i18n.en;
+      const setHTML = (id, val) => { const el = document.getElementById(id); if(el){ el.innerHTML = val; } }
+      const setText = (id, val) => { const el = document.getElementById(id); if(el){ el.textContent = val; } }
+      setText('i18n-chip', t.chip);
+      setText('i18n-hero-title', t.title);
+      setHTML('i18n-lead1', t.lead1);
+      setHTML('i18n-lead2', t.lead2);
+      setText('i18n-tour-btn', t.tourBtn);
+      setText('i18n-plans-btn', t.plansBtn);
+      const btn = document.getElementById('langToggle'); if(btn){ btn.textContent = t.toggle; }
+      localStorage.setItem('lang', lang);
+    }
+
+    (function initLang(){
+      const stored = localStorage.getItem('lang') || 'en';
+      applyLang(stored);
+      const btn = document.getElementById('langToggle');
+      if(btn){
+        btn.addEventListener('click', () => {
+          const next = (localStorage.getItem('lang') || 'en') === 'en' ? 'kn' : 'en';
+          applyLang(next);
+        });
+      }
+    })();
   </script>
 </body>
 </html>
